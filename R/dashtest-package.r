@@ -6,5 +6,5 @@ NULL
 
 #' @export
 plottest <- function(df, ...) {
-  plot(df$lat ~ df$long)
+  plot(df$lat ~ df$lon)
 }
