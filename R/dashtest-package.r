@@ -5,6 +5,6 @@
 NULL
 
 #' @export
-plottest <- function(df) {
+plottest <- function(df, ...) {
   plot(df$lat ~ df$long)
 }
