@@ -2,7 +2,7 @@
 #'
 #' @name dashtest
 #' @docType package
-#' @import ggmaps
+#' @import ggmap
 NULL
 
 #' @export

@@ -5,6 +5,6 @@ Authors@R: "First Last <first.last@example.com> [aut, cre]"
 Description: What the package does (paragraph)
 Depends:
     R (>= 3.1.0)
-Imports: ggmaps
+Imports: ggmap
 License: What license is it under?
 LazyData: true
