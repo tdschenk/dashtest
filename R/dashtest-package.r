@@ -2,7 +2,8 @@
 #'
 #' @name dashtest
 #' @docType package
-#' @import ggmap ggvis
+#' @import ggmap
+#' @import ggvis
 NULL
 
 ## Plot lat/lon points on a map
