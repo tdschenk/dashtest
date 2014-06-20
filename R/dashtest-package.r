@@ -17,6 +17,7 @@ mapplot <- function(data, params, ...) {
 }
 
 ## A simple test using ggvis
+
 #' @export
 vistest <- function(data, params, ...) {
   data %>%
