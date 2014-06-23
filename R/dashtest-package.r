@@ -25,5 +25,4 @@ vistest <- function(data, params, ...) {
           fill = ~pt
     ) %>%
     layer_points()
-  unbox(paste0(capture.output(show_spec(ggvis_plot)), collapse = ""))
 }
