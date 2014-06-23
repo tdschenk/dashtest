@@ -4,7 +4,8 @@ Version: 0.1
 Author: "Tyler Schenk <tschenk@meinergy.com>"
 Description: What the package does (paragraph)
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.1.0),
+    ggplot2
 Imports:
     ggmap,
     ggvis
