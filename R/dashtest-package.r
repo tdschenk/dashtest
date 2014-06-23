@@ -20,9 +20,10 @@ mapplot <- function(data, params, ...) {
 
 #' @export
 vistest <- function(data, params, ...) {
-  data %>%
+  ggvis_plot <- data %>%
     ggvis(~lat, ~lon,
           fill = ~pt
     ) %>%
-  layer_points()
+    layer_points()
+  unbox(paste0(capture.output(show_spec(ggvis_plot)), collapse = ""))
 }
