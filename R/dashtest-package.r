@@ -22,8 +22,6 @@ mapplot <- function(data, params, ...) {
 vistest <- function(data, params, ...) {
   data %>%
     ggvis(~lat, ~lon,
-          size := input_slider(1, 100, label = "size"),
-          opacity := input_slider(0, 1, label = "opacity"),
           fill = ~pt
     ) %>%
   layer_points()
