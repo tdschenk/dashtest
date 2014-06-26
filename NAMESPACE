@@ -2,5 +2,6 @@
 
 export(mapplot)
 export(vistest)
+export(getframe)
 import(ggmap)
 import(ggvis)

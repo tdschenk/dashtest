@@ -16,7 +16,6 @@ mapplot <- function(data, params, ...) {
 }
 
 ## A simple test using ggvis
-
 #' @export
 vistest <- function(data, params, ...) {
   ggvis_plot <- data %>%
@@ -24,4 +23,10 @@ vistest <- function(data, params, ...) {
           fill = ~pt
     ) %>%
     layer_points()
+}
+
+## Return data as a dataframe
+#' @export
+getframe <- function(data, params, ...) {
+  data
 }
