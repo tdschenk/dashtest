@@ -41,8 +41,8 @@ testfun <- function(data, params, ...) {
 records.per.day <- function(data, params, ...) {
   data[,4]<- as.POSIXct(substr(data[,3],0,10),format="%Y-%m-%d")
   data$count <- as.character( round(data[,4] , "day" ) )
-  a <- aggregate( df , by = list(data$count) , length )
-  c <- ggplot(df, aes(factor(day))) + 
+  a <- aggregate( data , by = list(data$count) , length )
+  c <- ggplot(data, aes(factor(day))) + 
     geom_bar()
   c
 }
