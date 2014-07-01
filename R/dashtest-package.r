@@ -3,7 +3,6 @@
 #' @name dashtest
 #' @docType package
 #' @import ggmap ggvis
-NULL
 
 ## Plot lat/lon points on a map
 #' @export
@@ -29,4 +28,20 @@ vistest <- function(data, params, ...) {
 #' @export
 getframe <- function(data, params, ...) {
   data
+}
+
+## Testing
+#' @export
+testfun <- function(data, params, ...) {
+  plot(1:10)
+}
+
+## Bar chart of records per day
+#' @export
+records.per.day <- function(data, params, ...) {
+  data[,4]<- as.POSIXct(substr(data[,3],0,10),format="%Y-%m-%d")
+  data$count <- as.character( round(data[,4] , "day" ) )
+  a <- aggregate( df , by = list(data$count) , length )
+  c <- ggplot(df, aes(factor(day))) + 
+    geom_bar()
 }
