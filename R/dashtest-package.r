@@ -44,4 +44,5 @@ records.per.day <- function(data, params, ...) {
   a <- aggregate( df , by = list(data$count) , length )
   c <- ggplot(df, aes(factor(day))) + 
     geom_bar()
+  c
 }
