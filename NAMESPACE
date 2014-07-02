@@ -3,7 +3,7 @@
 export(mapplot)
 export(vistest)
 export(getframe)
-export(testfun)
 export(records.per.day)
+export(records.per.hour)
 import(ggmap)
 import(ggvis)

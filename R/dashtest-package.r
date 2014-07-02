@@ -30,19 +30,27 @@ getframe <- function(data, params, ...) {
   data
 }
 
-## Testing
-#' @export
-testfun <- function(data, params, ...) {
-  plot(1:10)
-}
-
 ## Bar chart of records per day
 #' @export
 records.per.day <- function(data, params, ...) {
   data[,4]<- as.POSIXct(substr(data[,3],0,10),format="%Y-%m-%d")
   data$count <- as.character( round(data[,4] , "day" ) )
   a <- aggregate( data , by = list(data$count) , length )
-  c <- ggplot(data, aes(factor(day))) + 
-    geom_bar()
-  c
+  a %>%
+    ggvis(x = ~Group.1, y = ~count, fill := "tan") %>%
+    layer_bars() %>%
+    add_axis("x", title = "Day") %>%
+    add_axis("y", title = "Number of Records")
+}
+
+##
+#' @export
+records.per.hour <- function(data, params, ...) {
+  data[,4]<- substr(data[,3],12,13)
+  dt <- as.data.frame(table(data$time))
+  dt %>%
+    ggvis(x = ~Var1, y = ~Freq, fill := "tan") %>%
+    layer_bars() %>%
+    add_axis("x", title = "Hour") %>%
+    add_axis("y", title = "Number of Records")
 }
