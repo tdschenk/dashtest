@@ -14,14 +14,16 @@ mapplot <- function(data, params, ...) {
                           data = data)
 }
 
-## A simple test using ggvis
+## A simple scatterplot using ggvis
 #' @export
-vistest <- function(data, params, ...) {
+scattervis <- function(data, params, ...) {
   ggvis_plot <- data %>%
     ggvis(~lat, ~lon,
           fill = ~pt
     ) %>%
-    layer_points()
+    layer_points() %>%
+    add_axis("x", title = "Latitude") %>%
+    add_axis("y", title = "Longitude")
 }
 
 ## Return data as a dataframe
