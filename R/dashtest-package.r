@@ -49,7 +49,7 @@ records.per.day <- function(data, params, ...) {
 #' @export
 records.per.hour <- function(data, params, ...) {
   data[,4]<- substr(data[,3],12,13)
-  dt <- as.data.frame(table(data$time))
+  dt <- as.data.frame(table(data[,4]))
   dt %>%
     ggvis(x = ~Var1, y = ~Freq, fill := "tan") %>%
     layer_bars() %>%
