@@ -2,7 +2,7 @@
 #'
 #' @name dashtest
 #' @docType package
-#' @import ggmap ggvis
+#' @import ggmap ggvis leafletR
 
 ## Plot lat/lon points on a map
 #' @export
@@ -66,4 +66,12 @@ steps.per.day <- function(data, params, ...) {
     layer_lines() %>%
     add_axis("x", title = "Day") %>%
     add_axis("y", title = "Steps")
+}
+
+## Map plot using leaflet
+#' @export
+leaflet.plot <- function(data, params, ...) {
+  path <- toGeoJSON(data, lat.lon=c(10,5), dest=tempdir())
+  map <- leaflet(path, dest=tempdir())
+  map
 }

@@ -8,6 +8,7 @@ Depends:
     ggplot2
 Imports:
     ggmap,
-    ggvis
+    ggvis,
+    leafletR
 License: What license is it under?
 LazyData: true
