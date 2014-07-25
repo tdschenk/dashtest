@@ -73,5 +73,5 @@ steps.per.day <- function(data, params, ...) {
 leaflet.plot <- function(data, params, ...) {
   path <- toGeoJSON(data, lat.lon=c(10,5), dest=tempdir())
   map <- leaflet(path, dest=tempdir())
-  map
+  browseURL(map)
 }
