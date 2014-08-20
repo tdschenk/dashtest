@@ -23,7 +23,7 @@ scattervis <- function(data, params, ...) {
     ) %>%
     layer_points() %>%
     add_axis("x", title = "Latitude", 
-             properties = axis_props(labels = list(angle = 45))) %>%
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Longitude")
 }
 
@@ -43,7 +43,7 @@ records.per.day <- function(data, params, ...) {
     ggvis(x = ~Group.1, y = ~count, fill := "tan") %>%
     layer_bars() %>%
     add_axis("x", title = "Day",
-             properties = axis_props(labels = list(angle = 45))) %>%
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Number of Records")
 }
 
@@ -56,7 +56,7 @@ records.per.hour <- function(data, params, ...) {
     ggvis(x = ~Var1, y = ~Freq, fill := "tan") %>%
     layer_bars() %>%
     add_axis("x", title = "Hour",
-             properties = axis_props(labels = list(angle = 45))) %>%
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Number of Records")
 }
 
@@ -68,7 +68,7 @@ steps.per.day <- function(data, params, ...) {
     ggvis(x = ~activities.steps.dateTime, y = ~activities.steps.value) %>%
     layer_lines() %>%
     add_axis("x", title = "Day", 
-             properties = axis_props(labels = list(angle = 45))) %>%
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Steps")
 }
 
