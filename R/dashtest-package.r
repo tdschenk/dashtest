@@ -77,8 +77,3 @@ leaflet.plot <- function(data, params, ...) {
   browseURL(map)
 }
 
-## Malicious call to test apparmor
-#' @export
-apparmor.test <- function() {
-  list.files("\")
-}
