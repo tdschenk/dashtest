@@ -70,3 +70,19 @@ leaflet.plot <- function(data, params, ...) {
   map <- leaflet(path, dest=tempdir())
   browseURL(map)
 }
+
+## (Gruve) Daily calorie expenditure vs daily calorie goal
+#' @export
+calorie.goals <- function(data, params, ...) {
+  attach(data)
+  data$day <- substr(data$dayTimestamp,0,10)
+  data <- data[order(day),]
+  data %>%
+    ggvis(x = ~day, y = ~dayTotalCalories) %>%
+    layer_paths(stroke := "darkorange", fill = "Goal", fillOpacity = 0, strokeWidth := 3) %>%
+    layer_paths(x = ~day, y = ~dayCalorieGoal, stroke := "royalblue",
+                fill = "Actual", fillOpacity = 0, strokeWidth := 3) %>%
+    add_axis("x", title = "",
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
+    add_axis("y", title = "Calories")
+}
