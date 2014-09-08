@@ -74,7 +74,6 @@ leaflet.plot <- function(data, params, ...) {
 ## (Gruve) Daily calorie expenditure vs daily calorie goal
 #' @export
 calorie.goals <- function(data, params, ...) {
-  attach(data)
   data$day <- substr(data$dayTimestamp,0,10)
   data <- data[order(day),]
   data %>%
