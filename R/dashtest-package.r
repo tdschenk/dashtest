@@ -75,7 +75,7 @@ leaflet.plot <- function(data, params, ...) {
 #' @export
 calorie.goals <- function(data, params, ...) {
   data$day <- substr(data$dayTimestamp,0,10)
-  data <- data[order(day),]
+  data <- data[order(data$day),]
   data %>%
     ggvis(x = ~day, y = ~dayTotalCalories) %>%
     layer_paths(stroke := "darkorange", fill = "Goal", fillOpacity = 0, strokeWidth := 3) %>%
