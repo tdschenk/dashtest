@@ -26,12 +26,6 @@ scattervis <- function(data, params, ...) {
     add_axis("y", title = "Longitude")
 }
 
-## Return data as a dataframe
-#' @export
-getframe <- function(data, params, ...) {
-  data
-}
-
 ## Bar chart of records per day
 #' @export
 records.per.day <- function(data, params, ...) {
@@ -77,8 +71,18 @@ leaflet.plot <- function(data, params, ...) {
   browseURL(map)
 }
 
-## Malicious call to test apparmor
+## (Gruve) Daily calorie expenditure vs daily calorie goal
 #' @export
-apparmor.test <- function() {
-  list.files("\")
+calorie.goals <- function(data, params, ...) {
+  attach(data)
+  data$day <- substr(data$dayTimestamp,0,10)
+  data <- data[order(day),]
+  data %>%
+    ggvis(x = ~day, y = ~dayTotalCalories) %>%
+    layer_paths(stroke := "darkorange", fill = "Goal", fillOpacity = 0, strokeWidth := 3) %>%
+    layer_paths(x = ~day, y = ~dayCalorieGoal, stroke := "royalblue",
+                fill = "Actual", fillOpacity = 0, strokeWidth := 3) %>%
+    add_axis("x", title = "",
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
+    add_axis("y", title = "Calories")
 }

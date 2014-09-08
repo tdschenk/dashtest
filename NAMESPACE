@@ -2,9 +2,8 @@
 
 export(mapplot)
 export(scattervis)
-export(getframe)
 export(records.per.day)
 export(records.per.hour)
-export(apparmor.test)
+export(calorie.goals)
 import(ggvis)
 import(leafletR)
