@@ -85,3 +85,16 @@ calorie.goals <- function(data, params, ...) {
              properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Calories")
 }
+
+## (Fitbit) Daily step counts
+#' @export
+fitbit.steps <- function(data, params, ...) {
+  data$timestamp <- as.Date(data$timestamp)
+  data %>%
+    ggvis(x = ~timestamp, y = ~value) %>%
+    layer_paths(stroke := "navy", fillOpacity = 0, strokeWidth := 3) %>%
+    add_axis("x", title = "", 
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
+    add_axis("y", title_offset = 50, title = "Steps" )%>% 
+    scale_datetime("x", nice = "week")
+}
