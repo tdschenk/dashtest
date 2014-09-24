@@ -109,7 +109,7 @@ fitbit.heatmap <- function(data, params, ...) {
   data$day <- weekdays(as.Date(data$timestamp))
   
   ## Attempt to translate to ggvis
-  steps.data %>%
+  data %>%
     ggvis(~week, ~day, fill = ~value) %>%
     layer_rects(height = band(), width = band()) %>%
     scale_nominal("x", padding = 0, points = FALSE) %>%
