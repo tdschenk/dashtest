@@ -115,5 +115,6 @@ fitbit.heatmap <- function(data, params, ...) {
     scale_nominal("x", padding = 0, points = FALSE) %>%
     scale_nominal("y", padding = 0, points = FALSE) %>%
     add_axis("x", title = "Week") %>%
-    add_axis("y", title = "")
+    add_axis("y", title = "") %>%
+    add_legend(title = "Steps Taken")
 }
