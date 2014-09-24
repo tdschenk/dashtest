@@ -98,3 +98,22 @@ fitbit.steps <- function(data, params, ...) {
     add_axis("y", title_offset = 50, title = "Steps" )%>% 
     scale_datetime("x", nice = "week")
 }
+
+## (Fitbit) Calendar heatmap
+#' @export
+fitbit.heatmap <- function(data, params, ...) {
+  data <- transform(data,
+                    week = as.character(as.POSIXlt(timestamp)$yday %/% 7 + 1),
+                    wday = as.numeric(as.POSIXlt(timestamp)$wday),
+                    year = as.POSIXlt(timestamp)$year + 1900)
+  data$day <- weekdays(as.Date(data$timestamp))
+  
+  ## Attempt to translate to ggvis
+  steps.data %>%
+    ggvis(~week, ~day, fill = ~value) %>%
+    layer_rects(height = band(), width = band()) %>%
+    scale_nominal("x", padding = 0, points = FALSE) %>%
+    scale_nominal("y", padding = 0, points = FALSE) %>%
+    add_axis("x", title = "Week") %>%
+    add_axis("y", title = "")
+}
