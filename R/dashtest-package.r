@@ -14,6 +14,17 @@ mapplot <- function(data, params, ...) {
                           data = data)
 }
 
+#' @export
+chr_plot <- function(data, params, ...) {
+  data %>%
+    ggvis(x = ~measure_1_numerator, y = ~measure_2_numerator) %>%
+        layer_points()  %>% 
+    add_axis("x", title = "Measure 1",
+             properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
+    add_axis("y", title = "Measure 2")
+}
+
+
 ## A simple scatterplot using ggvis
 #' @export
 scattervis <- function(data, params, ...) {
