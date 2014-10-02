@@ -17,7 +17,7 @@ mapplot <- function(data, params, ...) {
 #' @export
 chr_plot <- function(data, params, ...) {
   data %>%
-    ggvis(x = ~ measure_1_numerator, y = ~ measure_2_numerator) %>%
+    ggvis(~measure_1_numerator, ~measure_2_numerator) %>%
         layer_points()
 }
 
