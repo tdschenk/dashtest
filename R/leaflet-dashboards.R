@@ -1,8 +1,7 @@
 ## Liitah Testing (Location->Name)
+## data <- read.csv("~/Practice/Liitah/js-venues.csv")
 #' @export
 liitah_venue_map <- function(data, params, ...) {
-  data <- read.csv("~/Practice/Liitah/js-venues.csv") ## Remove this line
-  
   # Extract gps data from JSON string and merge into dataframe
   gps <- data.frame(lat = numeric(), lon = numeric(), radius = numeric())
   for (i in 1:nrow(data)) {
