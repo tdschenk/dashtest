@@ -65,7 +65,7 @@ records.per.hour <- function(data, params, ...) {
 steps.per.day <- function(data, params, ...) {
   data[,2] <- as.numeric(data[,2])
   data %>%
-    ggvis(x = ~activities.steps.dateTime, y = ~activities.steps.value) %>%
+    ggvis(x = ~dateTime, y = ~value) %>%
     layer_lines() %>%
     add_axis("x", title = "Day") %>%
     add_axis("y", title = "Steps")
