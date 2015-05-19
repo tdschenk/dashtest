@@ -18,7 +18,7 @@ mapplot <- function(data, params, ...) {
 chr_plot <- function(data, params, ...) {
   data %>%
     ggvis(~measure_1_numerator, ~measure_2_numerator) %>%
-        layer_points()
+    layer_points()
 }
 
 
@@ -125,4 +125,18 @@ fitbit.heatmap <- function(data, params, ...) {
     add_axis("x", title = "Week") %>%
     add_axis("y", title = "") %>%
     add_legend(title = "Steps Taken")
+}
+
+#' @export
+multidata_test <- function(data, params, ...) {
+  steps <- nrow(data$steps)
+  tags <- nrow(data$event_tags)
+  ptext <- paste0("steps: ", steps, " tags: ", tags)
+  data2 <- data.frame(x = 1, y = 1)
+  ret <- data2 %>% ggvis(~x, ~y) %>% 
+    layer_text(text:=ptext,
+               dx := 50, fontWeight := "bold", fontSize := 20) %>%  
+    hide_axis("x") %>% 
+    hide_axis("y")
+  ret
 }
