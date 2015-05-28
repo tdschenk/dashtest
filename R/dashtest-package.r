@@ -67,7 +67,7 @@ steps.per.day <- function(data, params, ...) {
   data %>%
     ggvis(x = ~dateTime, y = ~value) %>%
     layer_lines() %>%
-    add_axis("x", title = "Day") %>%
+    add_axis("x", title = "Day", properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Steps")
 }
 
