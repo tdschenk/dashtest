@@ -63,7 +63,6 @@ records.per.hour <- function(data, params, ...) {
 ## A graph of number of steps per day from fitbit 
 #' @export
 steps.per.day <- function(data, params, ...) {
-  data[,2] <- as.numeric(data[,2])
   data %>%
     ggvis(x = ~dateTime, y = ~value) %>%
     layer_lines() %>%
