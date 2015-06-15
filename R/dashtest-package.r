@@ -140,3 +140,7 @@ multidata_test <- function(data, params, ...) {
     hide_axis("y")
   ret
 }
+
+test_job <- function(data, params, ...) {
+  stop(paste0(data))
+}
