@@ -97,8 +97,9 @@ calorie.goals <- function(data, params, ...) {
 ## (Fitbit) Daily step counts
 #' @export
 fitbit.steps <- function(data, params, ...) {
-  data$timestamp <- as.Date(data$timestamp)
-  data %>%
+  steps <- data$steps
+  steps$timestamp <- as.Date(steps$timestamp)
+  steps %>%
     ggvis(x = ~timestamp, y = ~value) %>%
     layer_paths(stroke := "navy", fillOpacity = 0, strokeWidth := 3) %>%
     add_axis("x", title = "", 
