@@ -63,10 +63,9 @@ records.per.hour <- function(data, params, ...) {
 ## A graph of number of steps per day from fitbit 
 #' @export
 steps.per.day <- function(data, params, ...) {
-  stop(paste0(names(data)))
-  data$data.dateTime <- as.character(as.POSIXlt(data$data.dateTime, format = "%Y-%m-%dT%H:%M:%SZ"))
+  data$steps.data.dateTime <- as.character(as.POSIXlt(data$steps.data.dateTime, format = "%Y-%m-%dT%H:%M:%SZ"))
   data %>%
-    ggvis(x = ~data.dateTime, y = ~data.value) %>%
+    ggvis(x = ~steps.data.dateTime, y = ~steps.data.value) %>%
     layer_lines() %>%
     add_axis("x", title = "", properties = axis_props(labels = list(angle = 45, align = "left"))) %>%
     add_axis("y", title = "Steps")
