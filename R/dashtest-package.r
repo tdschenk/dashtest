@@ -25,6 +25,7 @@ chr_plot <- function(data, params, ...) {
 ## A simple scatterplot using ggvis
 #' @export
 scattervis <- function(data, params, ...) {
+  data <- data$location
   ggvis_plot <- data %>%
     ggvis(~lat, ~lon,
           fill = ~pt
@@ -37,6 +38,7 @@ scattervis <- function(data, params, ...) {
 ## Bar chart of records per day
 #' @export
 records.per.day <- function(data, params, ...) {
+  data <- data$location
   data[,4]<- as.POSIXct(substr(data[,3],0,10),format="%Y-%m-%d")
   data$count <- as.character( round(data[,4] , "day" ) )
   a <- aggregate( data , by = list(data$count) , length )
@@ -51,6 +53,7 @@ records.per.day <- function(data, params, ...) {
 ## Bar chart of records per hour
 #' @export
 records.per.hour <- function(data, params, ...) {
+  data <- data$location
   data[,4]<- substr(data[,3],12,13)
   dt <- as.data.frame(table(data[,4]))
   dt %>%
